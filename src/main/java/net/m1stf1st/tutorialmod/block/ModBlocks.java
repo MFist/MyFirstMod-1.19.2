@@ -1,6 +1,7 @@
 package net.m1stf1st.tutorialmod.block;
 
 import net.m1stf1st.tutorialmod.TutorialMod;
+import net.m1stf1st.tutorialmod.block.custom.JumpyBlock;
 import net.m1stf1st.tutorialmod.item.ModCreativeModeTab;
 import net.m1stf1st.tutorialmod.item.ModItems;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -41,6 +42,10 @@ public class ModBlocks {
             () -> new DropExperienceBlock(BlockBehaviour.Properties.of(Material.STONE)
                     .strength(7f).requiresCorrectToolForDrops(),
                     UniformInt.of(3, 9)), ModCreativeModeTab.TUTORIAL_TAB);
+
+    public static final RegistryObject<Block> JUMPY_BLOCK = registerBlock("jumpy_block",
+            () -> new JumpyBlock(BlockBehaviour.Properties.of(Material.STONE)
+                    .strength(6f).requiresCorrectToolForDrops()), ModCreativeModeTab.TUTORIAL_TAB);
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
